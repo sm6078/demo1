@@ -19,10 +19,17 @@ func main() {
 	//var userKg float64
 	//userKg = 114
 
+	//Константы
+	//при объявлении константы можем явно указывать тип
+	//const IMTPower int = 2
+
+	//при объявлении константы можем явно не указывать тип - он буде untyped
+	const IMTPower = 2
+
 	//можно сделать вот так
 	userHeigth := 1.85
 	userKg := 100.0
 
-	IMT := userKg / math.Pow(userHeigth, 2)
+	IMT := userKg / math.Pow(userHeigth, IMTPower)
 	fmt.Print(IMT)
 }
