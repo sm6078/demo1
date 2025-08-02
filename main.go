@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+const IMTPower = 2
+
 func main() {
 
 	//fmt.Print("___Калькулятор индекса массы тела__\n")
@@ -26,17 +28,22 @@ func outputResult(imt float64) {
 }
 
 // создание функции с вовзращаемым параметром
-func calculateIMT(userKg float64, userHeigth float64) float64 {
-	const IMTPower = 2
-	IMT := userKg / math.Pow(userHeigth/100, IMTPower)
-	return IMT
+// func calculateIMT(userKg float64, userHeigth float64) float64 {
+// 	IMT := userKg / math.Pow(userHeigth/100, IMTPower)
+// 	return IMT
+// }
+
+// альтернативный возврат параметра
+func calculateIMT(userKg float64, userHeigth float64) (IMT float64) {
+	IMT = userKg / math.Pow(userHeigth/100, IMTPower)
+	return
 }
 
 //функция, которая возвращает несколько параметров
 
 func getUserInput() (float64, float64) {
-	var userKg float64
 	var userHeigth float64
+	var userKg float64
 	fmt.Print("Введите свой рост в сантиметрах: ")
 	fmt.Scan(&userHeigth)
 	fmt.Print("Введите свой вес в килограммах: ")
