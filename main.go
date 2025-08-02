@@ -20,16 +20,12 @@ func main() {
 	fmt.Print("Введите свой вес в килограммах: ")
 	fmt.Scan(&userKg)
 	IMT := userKg / math.Pow(userHeigth/100, IMTPower)
-	//fmt.Print("Ваш индекс массы тела: ")
-	//fmt.Print(IMT)
-	//--вывод строки с переменной
-	//fmt.Printf("Ваш индекс массы тела: %v", IMT)
+	//вызов созданной функции в рамках одного пакета
+	outputResult(IMT)
+}
 
-	//форматирование строки 0 символов после точки с округлением
-	//fmt.Printf("Ваш индекс массы тела: %.0f", IMT)
-	//fmt.Printf("Ваш индекс массы тела: %.2f", IMT)
-
-	//форматирование строки с сохранением в переменную без вывода на консоль
-	result := fmt.Sprintf("Ваш индекс массы тела: %.0f", IMT)
+// создание функции
+func outputResult(imt float64) {
+	result := fmt.Sprintf("Ваш индекс массы тела: %.0f", imt)
 	fmt.Println(result)
 }
