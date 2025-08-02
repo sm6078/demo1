@@ -8,15 +8,14 @@ import (
 const IMTPower = 2
 
 func main() {
-
-	//fmt.Print("___Калькулятор индекса массы тела__\n")
-	//fmt.Println("___Калькулятор индекса массы тела__")
-	//fmt.Print("Введите свой рост в сантиметрах: ")
-	//-мультистроки - приется убрать все табы, нарушить кодстайл
 	fmt.Println("___Калькулятор индекса массы тела__")
 	userHeigth, userKg := getUserInput()
-
+	//вызов функции с возвращением 2 парапмтеров
 	IMT := calculateIMT(userKg, userHeigth)
+	//isLean := IMT < 16
+	if IMT < 16 {
+		fmt.Println("У вас недостаток веса")
+	}
 	//вызов созданной функции в рамках одного пакета
 	outputResult(IMT)
 }
@@ -28,16 +27,16 @@ func outputResult(imt float64) {
 }
 
 // создание функции с вовзращаемым параметром
-// func calculateIMT(userKg float64, userHeigth float64) float64 {
-// 	IMT := userKg / math.Pow(userHeigth/100, IMTPower)
-// 	return IMT
-// }
+func calculateIMT(userKg float64, userHeigth float64) float64 {
+	IMT := userKg / math.Pow(userHeigth/100, IMTPower)
+	return IMT
+}
 
 // альтернативный возврат параметра
-func calculateIMT(userKg float64, userHeigth float64) (IMT float64) {
-	IMT = userKg / math.Pow(userHeigth/100, IMTPower)
-	return
-}
+// func calculateIMT(userKg float64, userHeigth float64) (IMT float64) {
+// 	IMT = userKg / math.Pow(userHeigth/100, IMTPower)
+// 	return
+// }
 
 //функция, которая возвращает несколько параметров
 
