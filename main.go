@@ -14,26 +14,16 @@ func main() {
 	IMT := calculateIMT(userKg, userHeigth)
 	//вызов созданной функции в рамках одного пакета
 	outputResult(IMT)
-	// if IMT < 16 {
-	// 	fmt.Println("У вас сильный дефицит массы тела")
-	// } else if IMT >= 18.5 && IMT < 25 {
-	// 	fmt.Println("У вас нормальный вес")
-	// } else if IMT >= 25 && IMT < 30 {
-	// 	fmt.Println("У вас избыточный вес")
-	// } else {
-	// 	fmt.Println("У вас степень ожирения")
-	// }
-
-	//так как мы используем if else - то && второе условие избыточное
-	if IMT < 16 {
+	switch { //switch true - true читается избыточным
+	case IMT < 16:
 		fmt.Println("У вас сильный дефицит массы тела")
-	} else if IMT < 18.5 {
+	case IMT < 18.5:
 		fmt.Println("У вас дефицит массы тела")
-	} else if IMT < 25 {
+	case IMT < 25:
 		fmt.Println("У вас нормальный вес")
-	} else if IMT < 30 {
+	case IMT < 30:
 		fmt.Println("У вас избыточный вес")
-	} else {
+	default:
 		fmt.Println("У вас степень ожирения")
 	}
 }
